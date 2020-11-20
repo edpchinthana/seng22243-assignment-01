@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.myblogs.models.Post
+import retrofit2.Callback
 
 class PostAdapter(private val context: Context, private val dataSource: ArrayList<Post>): BaseAdapter() {
     private val inflater: LayoutInflater
