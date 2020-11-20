@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         val post = Post(1,1,"title","body")
         postList.add(post)
         val listView = findViewById<ListView>(R.id.list_view)
-        val adapter =  ArrayAdapter<Post>(this, android.R.layout.simple_list_item_1, postList)
+        val adapter =  PostAdapter(this, postList as ArrayList<Post>)
         listView.adapter = adapter
     }
 
