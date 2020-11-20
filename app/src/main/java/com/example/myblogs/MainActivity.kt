@@ -20,20 +20,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://jsonplaceholder.typicode.com")
-            .build()
+        val retrofit = Retrofit.Builder().baseUrl("https://jsonplaceholder.typicode.com/").build()
         val postAPI: PostRepository = retrofit.create<PostRepository>(PostRepository::class.java)
         var postCall = postAPI.posts
-        val context = this
         postCall.enqueue(object : Callback<List<Post>>{
             override fun onFailure(call: Call<List<Post>>, t: Throwable) {
                 Log.d("GET api",t.message.toString())
             }
 
             override fun onResponse(call: Call<List<Post>>, response: Response<List<Post>>) {
-                val listView = findViewById<ListView>(R.id.list_view)
-                //val adapter =  PostAdapter(context, response as ArrayList<Post>)
+                //val listView = findViewById<ListView>(R.id.list_view)
+                //val adapter =  PostAdapter(this@MainActivity, response.body() as ArrayList<Post>)
                 //listView.adapter = adapter
                 println("data recieved")
             }
